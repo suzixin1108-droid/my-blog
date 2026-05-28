@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Play, Sparkles, Monitor, AppWindow, Cpu, Volume2, VolumeX, Maximize2, ExternalLink } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -11,6 +11,39 @@ export default function CommunityEventPageDesign() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
+  const [videoUrl, setVideoUrl] = useState<string>("https://cropgif.net/videos/1779956553818-b2bb37c9-67df-487a-94af-050b0c8eee3c.mp4");
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchVideoUrl = async () => {
+      try {
+        const fileRes = await fetch("https://service.easylink.cc/easyfiles?url=uhtjas");
+        if (!fileRes.ok) return;
+        const fileData = await fileRes.json();
+        if (!Array.isArray(fileData) || fileData.length === 0) return;
+        
+        const kodoKey = fileData[0].kodo_key;
+        if (!kodoKey) return;
+        
+        const cdnRes = await fetch(`https://service.easylink.cc/kodo/object/${encodeURIComponent(kodoKey)}`);
+        if (!cdnRes.ok) return;
+        const cdnData = await cdnRes.json();
+        
+        if (cdnData && cdnData.download_url) {
+          if (isMounted) {
+            setVideoUrl(cdnData.download_url);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to dynamically resolve EasyLink video URL:", err);
+      }
+    };
+    
+    fetchVideoUrl();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -130,7 +163,7 @@ export default function CommunityEventPageDesign() {
               <div className="relative aspect-video rounded-2xl overflow-hidden bg-black flex items-center justify-center">
                 <video
                   ref={videoRef}
-                  src="https://cropgif.net/videos/1779956553818-b2bb37c9-67df-487a-94af-050b0c8eee3c.mp4"
+                  src={videoUrl}
                   className="w-full h-full object-cover select-none pointer-events-auto"
                   autoPlay
                   loop

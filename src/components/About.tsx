@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Award, Target, HelpCircle, Briefcase, ChevronRight } from "lucide-react";
+import { Award, Target, HelpCircle, Briefcase, ChevronRight, Mail, Phone } from "lucide-react";
 
 // Use the user-supplied avatar image URL
 const AVATAR_PATH = "https://img.heliar.top/file/1779362632173_%E4%B8%AA%E4%BA%BA%E7%85%A7.jpg";
@@ -116,6 +116,32 @@ export default function About() {
             <p>
               在运动科技公司 <span className="font-bold text-stone-900">RQrun</span> 完成竞品分析与用户增长运营，<span className="bg-[#D5EAE3]/80 px-1.5 py-0.5 rounded-md text-[#2F5144] font-bold">知乎 46 万阅读、微博 60 万阅读，涨粉 5000+</span>。
             </p>
+          </div>
+
+          {/* Connected Contact Details row */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a 
+              href="mailto:suzixin0908@outlook.com"
+              className="group flex items-center gap-4 p-4 bg-white/40 hover:bg-[#D5EAE3]/40 border border-[#D5EAE3] rounded-2xl transition-all duration-300 shadow-sm cursor-pointer"
+            >
+              <div className="w-10 h-10 rounded-xl bg-[#775C55]/10 group-hover:bg-[#775C55]/20 flex items-center justify-center text-[#775C55] transition-colors">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-mono tracking-wider text-[#775C55]/60 uppercase">Email / 邮箱</span>
+                <span className="text-sm font-semibold font-mono text-[#775C55] mt-0.5 group-hover:text-[#7d5348] transition-colors">suzixin0908@outlook.com</span>
+              </div>
+            </a>
+
+            <div className="group flex items-center gap-4 p-4 bg-white/40 hover:bg-[#FDD3D5]/40 border border-[#FDD3D5]/50 rounded-2xl transition-all duration-300 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-[#775C55]/10 flex items-center justify-center text-[#775C55] transition-colors">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-mono tracking-wider text-[#775C55]/60 uppercase">Phone & WeChat / 微信</span>
+                <span className="text-sm font-semibold font-mono text-[#775C55] mt-0.5 select-all">15652020038</span>
+              </div>
+            </div>
           </div>
 
 

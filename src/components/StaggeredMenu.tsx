@@ -78,9 +78,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   const finalItems = items.length ? items : defaultItems;
 
   const defaultSocials: StaggeredMenuSocialItem[] = [
-    { label: "邮箱 / Email", link: "mailto:suzixin1108@gmail.com" },
-    { label: "灵感 / LRB", link: "#xhs" },
-    { label: "吉特哈布 / GitHub", link: "https://github.com" },
+    { label: "邮件：suzixin0908@outlook.com", link: "mailto:suzixin0908@outlook.com" },
+    { label: "电话/微信：15652020038", link: "tel:15652020038" },
+    { label: "灵感画廊 / Little Red Book", link: "#xhs" },
   ];
 
   const finalSocials = socialItems.length ? socialItems : defaultSocials;

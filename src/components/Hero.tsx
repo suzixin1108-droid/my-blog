@@ -6,6 +6,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import BlurText from "./BlurText";
+import { SparklesText } from "@/components/ui/sparkles-text";
 
 export default function Hero() {
   return (
@@ -39,14 +40,27 @@ export default function Hero() {
         </span>
 
         {/* Line 2 */}
-        <span className="block font-playfair text-[clamp(44px,9vw,80px)] font-bold text-[#D4A8A0] tracking-tight leading-[1.08]">
+        <span className="block font-playfair text-[clamp(44px,9vw,80px)] font-bold text-[#D4A8A0] tracking-tight leading-[1.08] flex items-center justify-center gap-x-[0.2em] flex-wrap">
           <BlurText
-            text="in what I build."
+            text="in what I"
             delay={160}
             animateBy="words"
             direction="top"
             className="font-playfair font-bold text-[#D4A8A0]"
           />
+          <motion.span
+            initial={{ opacity: 0, filter: "blur(10px)", y: -50 }}
+            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+            transition={{ delay: 0.65, duration: 0.7, ease: "easeOut" }}
+            className="inline-block"
+          >
+            <SparklesText
+              className="font-playfair font-bold text-[#D4A8A0] text-[clamp(44px,9vw,80px)] tracking-tight inline-block"
+              colors={["#FF595E", "#FF924C", "#FFCA3A", "#8AC926", "#1982C4", "#6A4C93", "#FF007F"]}
+            >
+              build.
+            </SparklesText>
+          </motion.span>
         </span>
       </h1>
 
