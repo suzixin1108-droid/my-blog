@@ -75,7 +75,7 @@ const TIMELINE_DATA: TimelineItem[] = [
   },
   {
     id: "05",
-    yearRange: "2026.03 – 至今",
+    yearRange: "2026",
     badge: "社区增长 · AIGC",
     title: "零克云（北京）科技有限公司",
     subtitle: "AI社区运营",
