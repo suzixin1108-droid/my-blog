@@ -79,16 +79,18 @@ export default function XhsInspiration() {
                   {/* Cover text elements mocked */}
                   <div className="relative z-10 text-center flex flex-col items-center">
                     {!post.imageUrl && (
-                      <div className="w-10 h-10 rounded-full bg-white/90 shadow-sm flex items-center justify-center mb-1">
-                        <Sparkles className="w-5 h-5 text-[#775C55]" />
-                      </div>
+                      <>
+                        <div className="w-10 h-10 rounded-full bg-white/90 shadow-sm flex items-center justify-center mb-1">
+                          <Sparkles className="w-5 h-5 text-[#775C55]" />
+                        </div>
+                        <span className="text-[11px] sm:text-xs font-sans font-bold py-1 px-2.5 rounded-full bg-stone-900/10 text-stone-850">
+                          English Tutorial
+                        </span>
+                        <span className="text-[10px] sm:text-[11px] font-mono font-extrabold mt-1 select-none tracking-wider text-[#775C55]/50">
+                          COZE AUTOMATION V1
+                        </span>
+                      </>
                     )}
-                    <span className={`text-[11px] sm:text-xs font-sans font-bold py-1 px-2.5 rounded-full ${post.imageUrl ? 'bg-white/95 text-stone-900 shadow-sm' : 'bg-stone-900/10 text-stone-850'}`}>
-                      {post.imageUrl ? "爆款实操案例" : "English Tutorial"}
-                    </span>
-                    <span className={`text-[10px] sm:text-[11px] font-mono font-extrabold mt-1 select-none tracking-wider ${post.imageUrl ? 'text-white drop-shadow-sm' : 'text-[#775C55]/50'}`}>
-                      {post.imageUrl ? "XHS VIRAL POST" : "COZE AUTOMATION V1"}
-                    </span>
                   </div>
 
                   {/* Tiny design features replicating Red interface */}
